@@ -21,7 +21,7 @@ Repozitář slouží jako sbírka skriptů, ve kterých jsou pomocí Pythonu ilu
  
 | Složka | Téma |
 |---|---|
-| [`01_vztah_marginalni_sdruzene_fce`](01_vztah_marginalni_sdruzene_fce) | Vícerozměrná náhodná veličina — vztah marginálních a sdružených hustot (příklad $f_\alpha(x,y)$) |
+| [`01_vztah_marginalni_sdruzene_fce`](01_vztah_marginalni_sdruzene_fce) | Vícerozměrná náhodná veličina — vztah marginálních a sdružených hustot |
  
 ## Sdílený balíček `msm_viz`
  
