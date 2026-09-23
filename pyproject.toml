@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "msm-viz"
+version = "0.1.0"
+description = "Sdílené pomocné funkce pro vizualizace k předmětu Mnohorozměrné statistické metody"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "sympy",
+]
+
+[tool.setuptools]
+packages = ["msm_viz"]
