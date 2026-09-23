@@ -6,45 +6,38 @@ sdružených funkcí"*.
 
 ## Teorie
 
-Pro náhodný vektor $\mathbf{X}$ se sdruženou hustotou $f(\mathbf{x})$ jsou
-marginální hustoty $f_j(x_j)$ dány jednoznačně. **Opačně to ale neplatí** —
-ze znalosti marginálních rozdělení nelze (bez dalších informací)
-jednoznačně určit sdruženou hustotu.
+Pro náhodný vektor $\mathbf{X}$ se sdruženou funkcí hustoty $f(\mathbf{x})$ jsou marginální funkce $f_j(x_j)$, kde $j = 1, 2, \dots, k$ dány jednoznačně. 
 
-Ukazuje se to na rodině hustot
+**Opačně to ale neplatí** — ze znalosti marginálních rozdělení nelze (bez dalších informací) jednoznačně určit sdruženou funkci.
 
+Např. 
 $$
 f_\alpha(x,y) = 1 + \alpha(2x-1)(2y-1), \qquad
 \alpha \in \langle -1,1 \rangle,\quad x,y \in (0,1),
 $$
 
-kde marginální rozdělení $f_X(x)$ a $f_Y(y)$ jsou **rovnoměrná** pro
-libovolnou hodnotu parametru $\alpha$, přestože sdružená hustota se s
-měnícím se $\alpha$ mění.
+kde marginální rozdělení $f_X(x)$ a $f_Y(y)$ jsou **rovnoměrná** rozdělení pro libovolnou hodnotu parametru $\alpha$.
 
 ## Obsah
-
-- **`main.py`**
-  - `marginalni_overeni()` — symbolicky (SymPy) ověří, že marginály
+ 
+- **`main.py`** — jeden skript se dvěma režimy, přepínatelnými argumentem `--mode`:
+  - `marginal_check()` — symbolicky (SymPy) ověří, že marginály
     $f_X(x)$ a $f_Y(y)$ vyjdou rovnoměrné (rovny 1) nezávisle na $\alpha$.
-  - `vizualizace(alpha_hodnoty)` — pro zadanou sadu hodnot $\alpha$
-    vykreslí mřížku grafů: heatmapu sdružené hustoty $f_\alpha(x,y)$ a pod
-    ní numericky (NumPy, lichoběžníkové pravidlo) spočtenou marginálu
-    $f_X(x)$.
-
-- **`slider.py`**
-  - Interaktivní verze s posuvníkem (`matplotlib.widgets.Slider`) pro
-    spojitou změnu parametru $\alpha \in \langle -1, 1 \rangle$ a okamžité
-    přepočítání sdružené hustoty a marginály.
-
+  - `compute_joint_density(X, Y, alpha)` — spočítá sdruženou hustotu
+    $f_\alpha(x,y)$ na dané mřížce.
+  - `draw_joint_density(...)` / `draw_marginal_density(...)` — sdílené vykreslovací funkce
+  - `visualize_static(alpha_hodnoty)` — **statický režim**: pro zadanou
+    sadu hodnot $\alpha$ vykreslí mřížku grafů vedle sebe.
+  - `visualize_interactive()` — **interaktivní režim**: jeden graf s posuvníkem  pro změnu $\alpha \in \langle -1, 1 \rangle$.
 ## Spuštění
-
+ 
 ```bash
-python main.py      # statické srovnání pro několik hodnot alpha
-python slider.py     # interaktivní verze s posuvníkem
+python main.py                     # interaktivní režim s posuvníkem (výchozí)
+python main.py --mode static       # statické srovnání pro několik hodnot alpha
+python main.py --mode interactive  # totéž jako bez argumentu
 ```
-
+ 
 ## Zdroj
-
+ 
 Přednáška KMA/MSM, Blanka Šedivá — *Vícerozměrná náhodná veličina*
 (verze 2026/2027).
